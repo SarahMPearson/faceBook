@@ -1,0 +1,14 @@
+extends ../shared/template
+block content
+  h2 Profile
+  .row
+    .col-xs-6
+      h3: a(href='/profile/edit')= user.email
+      .photo.pull-right.thumbnail(style='background-image:url(#{user.photo});')
+    ul
+      li= user.phone
+      li= user.twitter
+      li= user.facebook
+      .col-xs-6
+
+block scripts

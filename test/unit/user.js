@@ -28,5 +28,24 @@ describe('User', function(){
       expect(u).to.be.instanceof(User);
     });
   });
-});
+
+  /* describe('#save', function(){
+    it('should save a user', function(done){
+      var userId = Mongo.ObjectID('000000000000000000000001'),
+      Goal.findByGoalIdAndUserId(goalId, userId, function(err, goal){
+        goal.name = 'stuff';
+        goal.save(function(err, count){
+          expect(count).to.equal(1);
+          done();
+        });
+      });
+    });
+  });
+
+  describe('#update', function(){
+    it('should update profile', function(){
+    });
+  }); */
+}); // last bracket
+
 

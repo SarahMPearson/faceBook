@@ -28,13 +28,44 @@ describe('users', function(){
     });
   });
 
-  describe('get /register', function(){
-    it('should show the register page', function(done){
+  describe('get /profile/edit', function(){
+    it('should show the edit profile page', function(done){
       request(app)
-      .get('/register')
+      .get('/profile/edit')
+      .set('cookie', cookie)
       .end(function(err, res){
         expect(res.status).to.equal(200);
-        expect(res.text).to.include('Register');
+        expect(res.text).to.include('Email');
+        expect(res.text).to.include('bob@aol.com');
+        expect(res.text).to.include('Phone');
+        expect(res.text).to.include('Private');
+        done();
+      });
+    });
+  });
+  describe('put /profile', function(){
+    it('should edit the profile', function(done){
+      request(app)
+      .post('/profile')
+      .send('_method=put&visible=public&email=bob%40aol.com&phono=123456789&photo=photourl&tagline=blah&facebook=facebookurl&twitter=twitterurl')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(302);
+        expect(res.headers.location).to.equal('/profile');
+        done();
+      });
+    });
+  });
+  describe('get /profile', function(){
+    it('should show the profile page', function(done){
+      request(app)
+      .get('/profile')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        expect(res.headers.location).to.equal('/profile');
+        expect(res.text).to.include('Phone');
+        expect(res.text).to.include('Twitter');
         done();
       });
     });

@@ -41,17 +41,3 @@ exports.authenticate = function(req, res){
   });
 };
 
-exports.edit = function(req, res){
-  res.render('users/edit');
-};
-
-exports.update = function(req, res){
-  res.locals.user.save(req.body, function(){
-    res.redirect('/profile');
-  });
-};
-
-exports.show = function(req, res){
-  res.render('users/show');
-};
-
