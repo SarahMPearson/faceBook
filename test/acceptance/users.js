@@ -79,7 +79,7 @@ describe('users', function(){
         expect(res.status).to.equal(200);
         expect(res.text).to.include('bob@aol.com');
         expect(res.text).to.include('cliff@aol.com');
-        expect(res.text).to.not.include('sue@aol.com');
+        expect(res.text).to.not.include('NSS6tester@yahoo.com');
         done();
       });
     });
@@ -99,7 +99,7 @@ describe('users', function(){
 
     it('should NOT show a specific user - not public', function(done){
       request(app)
-      .get('/users/sue@aol.com')
+      .get('/users/NSS6tester@yahoo.com')
       .set('cookie', cookie)
       .end(function(err, res){
         expect(res.status).to.equal(302);
@@ -110,14 +110,27 @@ describe('users', function(){
   });
 
   describe('post /message/3', function(){
-    it('should send a user a message', function(done){
+    it('should send a user a text message', function(done){
       request(app)
       .post('/message/000000000000000000000002')
       .set('cookie', cookie)
       .send('mtype=text&message=hey')
       .end(function(err, res){
         expect(res.status).to.equal(302);
-        expect(res.headers.location).to.equal('/users/sue@aol.com');
+        expect(res.headers.location).to.equal('/users/NSS6tester@yahoo.com');
+        done();
+      });
+    });
+  });
+  describe('post /message/3', function(){
+    it('should send a user an email message', function(done){
+      request(app)
+      .post('/message/000000000000000000000002')
+      .set('cookie', cookie)
+      .send('mtype=email&message=hey')
+      .end(function(err, res){
+        expect(res.status).to.equal(302);
+        expect(res.headers.location).to.equal('/users/NSS6tester@yahoo.com');
         done();
       });
     });

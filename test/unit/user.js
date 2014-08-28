@@ -55,6 +55,16 @@ describe('User', function(){
         });
       });
     });
+    it('should send a email message to a user', function(done){
+      User.findById('000000000000000000000001', function(err, sender){
+        User.findById('000000000000000000000002', function(err, receiver){
+          sender.send(receiver, {mtype:'email', message:'yo'}, function(err, response){ // {mtype and message are req.body} TWILIO gives hits the cb and gives you the callback
+            expect(response.id).to.be.ok;
+            done();
+          });
+        });
+      });
+    });
   });
 });
 
