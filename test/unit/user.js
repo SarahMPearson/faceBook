@@ -7,7 +7,7 @@ var expect    = require('chai').expect,
     User      = require('../../app/models/user'),
     dbConnect = require('../../app/lib/mongodb'),
     cp        = require('child_process'),
-    db        = 'template-test';
+    db        = 'facebook-test';
 
 describe('User', function(){
   before(function(done){
@@ -22,30 +22,39 @@ describe('User', function(){
     });
   });
 
-  describe('constructor', function(){
-    it('should create a new User object', function(){
-      var u = new User();
-      expect(u).to.be.instanceof(User);
-    });
-  });
+  describe('#save', function(){
+    it('should save a user', function(){
+      var u = new User(),
+          o = {x:3, visible:'public', foo:'bar'};
 
-  /* describe('#save', function(){
-    it('should save a user', function(done){
-      var userId = Mongo.ObjectID('000000000000000000000001'),
-      Goal.findByGoalIdAndUserId(goalId, userId, function(err, goal){
-        goal.name = 'stuff';
-        goal.save(function(err, count){
-          expect(count).to.equal(1);
-          done();
-        });
+      u.baz = 'bim';
+      u.save(o, function(err, user){
+        expect(user.isVisible).to.be.true;
+        expect(user.foo).to.equal('bar');
+        expect(user.baz).to.equal('bim');
       });
     });
   });
 
-  describe('#update', function(){
-    it('should update profile', function(){
+  describe('.find', function(){
+    it('should find users who are public', function(){
+      User.find({isVisible:true}, function(err, users){
+        expect(users).to.have.length(3);
+      });
     });
-  }); */
-}); // last bracket
+  });
 
+  describe('#send', function(){
+    it('should send a text message to a user', function(done){
+      User.findById('000000000000000000000001', function(err, sender){
+        User.findById('000000000000000000000002', function(err, receiver){
+          sender.send(receiver, {mtype:'text', message:'yo'}, function(err, response){ // {mtype and message are req.body} TWILIO gives hits the cb and gives you the callback
+            expect(response.sid).to.be.ok;
+            done();
+          });
+        });
+      });
+    });
+  });
+});
 

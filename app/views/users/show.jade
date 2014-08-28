@@ -1,14 +1,18 @@
 extends ../shared/template
 block content
   h2 Profile
-  .row
-    .col-xs-6
+    .col-xs-12
       h3: a(href='/profile/edit')= user.email
-      .photo.pull-right.thumbnail(style='background-image:url(#{user.photo});')
+  .row
+    .col-xs-2
+        .photo.pull-right.thumbnail(style='background-image:url(#{user.photo});')
+    .col.xs-10
+  .row
+    .col-xs-12
     ul
       li= user.phone
       li= user.twitter
       li= user.facebook
-      .col-xs-6
+      li= user.isVisible
 
 block scripts

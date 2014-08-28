@@ -35,6 +35,14 @@ User.authenticate = function(o, cb){
   });
 };
 
+User.find = function(filter, cb){
+  User.collection.find(filter).toArray(cb);
+};
+
+User.findOne = function(filter, cb){
+  User.collection.findOne(filter, cb);
+};
+
 User.prototype.save = function(o, cb){
   var properties = Object.keys(o),
       self       = this;
@@ -52,5 +60,28 @@ User.prototype.save = function(o, cb){
   User.collection.save(this, cb);
 };
 
+User.prototype.send = function(receiver, obj, cb){
+  switch(obj.mtype){
+    case 'text':
+      sendText(receiver.phone, obj.message, cb);
+      break;
+    case 'email':
+      break;
+    case 'internal':
+  }
+};
+
 module.exports = User;
+
+
+function sendText(to, body, cb){
+  if(!to){return cb();}
+
+  var accountSid = process.env.TWSID,
+      authToken  = process.env.TWTOK,
+      from       = process.env.FROM,
+      client     = require('twilio')(accountSid, authToken);
+
+  client.messages.create({to:to, from:from, body:body}, cb);
+}
 
