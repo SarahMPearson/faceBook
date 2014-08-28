@@ -1,10 +1,10 @@
-## name of project
+## faceBook
 ### Code Badges
-build status icon
-coverage status icon
+[![Build Status](https://travis-ci.org/SarahMPearson/faceBook.svg)](https://travis-ci.org/SarahMPearson/faceBook)
+[![Coverage Status](https://coveralls.io/repos/SarahMPearson/faceBook/badge.png)](https://coveralls.io/r/SarahMPearson/faceBook)
 
 ### About
-write a description about your project
+a fake facebook app for learning in school 
 
 ### Models
 ```
@@ -34,8 +34,6 @@ $ npm install
 $ npm test
 ```
 
-### Contributors
-- [Chyld Medford](https://github.com/chyld)
 
 ### License
 [MIT](LICENSE)
