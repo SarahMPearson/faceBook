@@ -14,7 +14,7 @@ after_script:
 env:
   global:
     -DEBUG=1
-    -secure: t9gxeOYf6tLe5v45XAK1CXdpPug0i0uABZndhqtcVyHNC8t7s/H9I7AzoCcykPSnttQLKnA50FjOFK84+5NunHOms174Aw9EG0U8ZHTbbJQZNY5jOk9iymUvyLerOPsOKt80ZnHkf0oltvZ3DzgoPTM/g50RvH/nosKP4+GNFj4=
-    -secure: OMRQ+IW+bAhwsOdeMfI/j8udPesvw3pjgGAIjELARVs2+lrzfwl3R8+izvEuOR5O3nUSm9XgiaGZkqvq4tdwyNqSFA1ab9SDC4jAx+U6AIr538XhnxcEHijUAgE1N5jfpbrHJx7HsKjnLUmOkW66WZcXPuT13EZXpCTnQkj7Szk=
-    -secure: KoU3/DAxfW71gBeK5YHJpn0zkVuQQHg9lOC8CbaRAeac8QkvpWCqcQVtRHU5L6rCuHh0sLTPcgJaVhUuwLdytidG7yD/lBtcZLu+R2Cg6LGhtGtNCPmEyM7prFbJjh02GJKZ8qojWuV9wfK3KqfYRepbXFLl21CIp3JqFiM9P8s=
+    -secure: "t9gxeOYf6tLe5v45XAK1CXdpPug0i0uABZndhqtcVyHNC8t7s/H9I7AzoCcykPSnttQLKnA50FjOFK84+5NunHOms174Aw9EG0U8ZHTbbJQZNY5jOk9iymUvyLerOPsOKt80ZnHkf0oltvZ3DzgoPTM/g50RvH/nosKP4+GNFj4="
+    -secure: "OMRQ+IW+bAhwsOdeMfI/j8udPesvw3pjgGAIjELARVs2+lrzfwl3R8+izvEuOR5O3nUSm9XgiaGZkqvq4tdwyNqSFA1ab9SDC4jAx+U6AIr538XhnxcEHijUAgE1N5jfpbrHJx7HsKjnLUmOkW66WZcXPuT13EZXpCTnQkj7Szk="
+    -secure: "KoU3/DAxfW71gBeK5YHJpn0zkVuQQHg9lOC8CbaRAeac8QkvpWCqcQVtRHU5L6rCuHh0sLTPcgJaVhUuwLdytidG7yD/lBtcZLu+R2Cg6LGhtGtNCPmEyM7prFbJjh02GJKZ8qojWuV9wfK3KqfYRepbXFLl21CIp3JqFiM9P8s="
 
