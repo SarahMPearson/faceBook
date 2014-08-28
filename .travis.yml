@@ -11,4 +11,10 @@ script:
   - npm test
 after_script:
   - npm run coveralls
+env:
+  global:
+    -DEBUG=1
+    -secure:
+    -secure:
+    -secure:
 
